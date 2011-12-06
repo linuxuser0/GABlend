@@ -10,4 +10,3 @@ def randomize(shape, dist):
 def create_random_object():
     bpy.ops.mesh.primitive_uv_sphere_add()
     randomize(bpy.data.objects["Sphere"], 2)
-    
