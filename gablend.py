@@ -7,6 +7,10 @@ def randomize(shape, dist):
         vert.co.y += random.randint(-dist,dist)
         vert.co.z += random.randint(-dist,dist)
 
-def create_random_object():
+def create_random_object(name, dist):
     bpy.ops.mesh.primitive_uv_sphere_add()
-    randomize(bpy.data.objects["Sphere"], 2)
+    random_object = bpy.context.active_object
+    randomize(random_object, dist)
+    random_object.name = name
+    return random_object
+    
