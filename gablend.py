@@ -1,32 +1,32 @@
 import bpy
 import random
 
-def create_random_gaobject(name, dist=2):
-    return GAObject(create_random_object(name, dist))
+def create_random_gaobject(name, maxdist=2):
+    return GAObject(create_random_object(name, maxdist))
 
-def create_random_object(name, dist=2):
+def create_random_object(name, maxdist=2):
     bpy.ops.mesh.primitive_uv_sphere_add()
     random_object = bpy.context.active_object
-    randomize_object(random_object, dist)
+    randomize_object(random_object, maxdist)
     random_object.name = name
     return random_object
 
-def randomize_object(shape, dist=2):
-    for vert in shape.data.vertices:
-        randomize_vertex(vert, dist)
+def randomize_object(obj, maxdist=2):
+    for vert in obj.data.vertices:
+        randomize_vertex(vert, maxdist)
     
-def randomize_vertex(vert, dist=2):
-    vert.co.x += random.uniform(-dist, dist)
-    vert.co.y += random.uniform(-dist, dist)
-    vert.co.z += random.uniform(-dist, dist)
+def randomize_vertex(vert, maxdist=2):
+    vert.co.x += random.uniform(-maxdist, maxdist)
+    vert.co.y += random.uniform(-maxdist, maxdist)
+    vert.co.z += random.uniform(-maxdist, maxdist)
     
 
-def mutate(obj, dist=2):
+def mutate(obj, maxdist=2):
     verts = count_vertices(obj)
     for vert in obj.data.vertices:
         chance = random.randint(1, verts)
         if chance == verts:
-            randomize_vertex(vert, dist)
+            randomize_vertex(vert, maxdist)
             
 def count_vertices(obj):
     count = 0
