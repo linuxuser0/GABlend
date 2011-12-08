@@ -40,13 +40,10 @@ class GAObject:
         self.ffval = ffval
     def set_ffval(ffval):
         this.ffval=ffval
-    
     def set_obj(obj):
         self.obj=obj
-        
     def get_ffval():
         return ffval
-        
     def get_obj():
         return obj
     
