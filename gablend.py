@@ -1,6 +1,9 @@
 import bpy
 import random
 
+def create_random_gaobject(name, dist=2):
+    return GAObject(create_random_object(name, dist))
+
 def create_random_object(name, dist=2):
     bpy.ops.mesh.primitive_uv_sphere_add()
     random_object = bpy.context.active_object
