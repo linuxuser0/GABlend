@@ -28,7 +28,7 @@ def mutate(gaobj, maxdist=2):
         if chance == verts:
             randomize_vertex(vert, maxdist)
     
-def count_vertices():
+def count_vertices(obj):
     count = 0
     for vert in obj.data.vertices:
         count += 1
@@ -38,4 +38,4 @@ class GAObject:
     def __init__(self, obj, ffval=0):
         self.obj = obj
         self.ffval = ffval
-        self.verts = count_vertices()
+        self.verts = count_vertices(obj)
