@@ -21,20 +21,19 @@ def randomize_vertex(vert, maxdist=2):
     vert.co.z += random.uniform(-maxdist, maxdist)
     
 
-def mutate(obj, maxdist=2):
-    verts = count_vertices(obj)
-    for vert in obj.data.vertices:
+def mutate(gaobj, maxdist=2):
+    verts = gaobj.count_vertices()
+    for vert in gaobj.obj.data.vertices:
         chance = random.randint(1, verts)
         if chance == verts:
             randomize_vertex(vert, maxdist)
-            
-def count_vertices(obj):
-    count = 0
-    for vert in obj.data.vertices:
-        count += 1
-    return count
     
 class GAObject:
     def __init__(self, obj, ffval=0):
         self.obj = obj
         self.ffval = ffval
+    def count_vertices(obj):
+        count = 0
+        for vert in obj.data.vertices:
+            count += 1
+        return count
