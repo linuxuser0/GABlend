@@ -32,7 +32,7 @@ class GAObject:
     def __init__(self, obj, ffval=0):
         self.obj = obj
         self.ffval = ffval
-    def count_vertices(obj):
+    def count_vertices():
         count = 0
         for vert in obj.data.vertices:
             count += 1
