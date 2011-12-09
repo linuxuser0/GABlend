@@ -22,7 +22,7 @@ def randomize_vertex(vert, maxdist=2):
     
 
 def mutate(gaobj, maxdist=2):
-    verts = gaobj.count_vertices()
+    verts = gaobj.verts
     for vert in gaobj.obj.data.vertices:
         chance = random.randint(1, verts)
         if chance == verts:
