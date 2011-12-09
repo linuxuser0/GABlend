@@ -34,6 +34,6 @@ class GAObject:
         self.ffval = ffval
     def count_vertices(self):
         count = 0
-        for vert in obj.data.vertices:
+        for vert in self.obj.data.vertices:
             count += 1
         return count
